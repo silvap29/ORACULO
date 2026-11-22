@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORÁCULO</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #17191d;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 430px;
+      min-height: 100vh;
+      padding: 35px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 27px;
+      letter-spacing: 8px;
+      margin-top: 15px;
+    }
+
+    .status {
+      color: #999da5;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .orb {
+      width: 175px;
+      height: 175px;
+      border-radius: 50%;
+      margin: auto;
+      background: radial-gradient(circle, #ffffff, #aeb5c0 45%, #424853 75%, #17191d);
+      box-shadow: 0 0 45px #aeb5c044;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 55px;
+      color: #222831;
+    }
+
+    .message {
+      color: #b8bdc6;
+      text-align: center;
+      margin-bottom: 20px;
+      min-height: 20px;
+    }
+
+    .chat {
+      display: flex;
+      width: 100%;
+      gap: 8px;
+    }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 15px;
+      border: 1px solid #41454e;
+      border-radius: 25px;
+      background: #25282e;
+      color: white;
+      outline: none;
+    }
+
+    button {
+      border: none;
+      border-radius: 25px;
+      padding: 14px 18px;
+      background: #e2e5eb;
+      color: #17191d;
+      font-weight: bold;
+    }
+
+    .voice {
+      margin-top: 15px;
+      width: 100%;
+      background: #343941;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app">
+    <h1>ORÁCULO</h1>
+    <p class="status">ASSISTENTE PESSOAL</p>
+
+    <div class="orb">◉</div>
+
+    <p class="message" id="message">
+      Olá! Estou pronto para conversar.
+    </p>
+
+    <div class="chat">
+      <input id="question" placeholder="Converse comigo...">
+      <button id="send">Enviar</button>
+    </div>
+
+    <button class="voice" id="voice">
+      🎙 Falar com ORÁCULO
+    </button>
+  </main>
+
+  <script>
+    const question = document.getElementById("question");
+    const message = document.getElementById("message");
+    const send = document.getElementById("send");
+
+    send.addEventListener("click", () => {
+      const text = question.value.trim();
+
+      if (text === "") return;
+
+      message.textContent = "Você disse: " + text;
+      question.value = "";
+    });
+  </script>
+</body>
+</html>
